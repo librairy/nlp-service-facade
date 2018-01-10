@@ -1,0 +1,15 @@
+{"namespace": "org.librairy.service.nlp.facade.model",
+ "protocol": "NlpService",
+
+ "types": [
+    {"name": "PoS", "type": "enum","symbols": ["NOUN","VERB","ADJECTIVE","ADVERB","PRONOUN","PREPOSITION","CONJUNCTION","INTERJECTION","ARTICLE"]},
+    {"name": "Form", "type": "enum","symbols": ["RAW","LEMMA","STEM"]}
+ ],
+
+ "messages": {
+     "process": {
+         "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "form", "type": "Form"}],
+         "response": "string"
+     }
+ }
+}
