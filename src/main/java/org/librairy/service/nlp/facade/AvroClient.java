@@ -3,6 +3,7 @@ package org.librairy.service.nlp.facade;
 import org.apache.avro.AvroRemoteException;
 import org.apache.avro.ipc.NettyTransceiver;
 import org.apache.avro.ipc.specific.SpecificRequestor;
+import org.librairy.service.nlp.facade.model.Annotation;
 import org.librairy.service.nlp.facade.model.Form;
 import org.librairy.service.nlp.facade.model.NlpService;
 import org.librairy.service.nlp.facade.model.PoS;
@@ -42,5 +43,14 @@ public class AvroClient {
         CharSequence result = proxy.process(text, filter, form);
         LOG.debug("Result: " + result);
         return result.toString();
+    }
+
+    public List<Annotation> annotate(String text, List<PoS> filter) throws AvroRemoteException {
+
+        // fill in the Message record and send it
+        LOG.debug("Calling proxy.annotate with message:  \"" + text +"\" , filter: " + filter);
+        List<Annotation> annotations = proxy.annotate(text, filter);
+        LOG.debug("Result: " + annotations);
+        return annotations;
     }
 }
