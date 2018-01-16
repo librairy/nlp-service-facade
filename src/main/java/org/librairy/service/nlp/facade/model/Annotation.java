@@ -7,11 +7,11 @@ package org.librairy.service.nlp.facade.model;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Annotation extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Annotation\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"target\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"form\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"case\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"morphoFeat\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pos\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sentiment\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"offset\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"para\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Annotation\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"target\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"form\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"termcase\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"morphoFeat\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pos\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sentiment\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"offset\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"para\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
    private java.lang.String target;
    private java.lang.String form;
-   private java.lang.String case$;
+   private java.lang.String termcase;
    private java.lang.String lemma;
    private java.lang.String morphoFeat;
    private java.lang.String pos;
@@ -30,10 +30,10 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    */
-  public Annotation(java.lang.String target, java.lang.String form, java.lang.String case$, java.lang.String lemma, java.lang.String morphoFeat, java.lang.String pos, java.lang.String type, java.lang.String sentiment, java.lang.String offset, java.lang.String para) {
+  public Annotation(java.lang.String target, java.lang.String form, java.lang.String termcase, java.lang.String lemma, java.lang.String morphoFeat, java.lang.String pos, java.lang.String type, java.lang.String sentiment, java.lang.String offset, java.lang.String para) {
     this.target = target;
     this.form = form;
-    this.case$ = case$;
+    this.termcase = termcase;
     this.lemma = lemma;
     this.morphoFeat = morphoFeat;
     this.pos = pos;
@@ -49,7 +49,7 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
     switch (field$) {
     case 0: return target;
     case 1: return form;
-    case 2: return case$;
+    case 2: return termcase;
     case 3: return lemma;
     case 4: return morphoFeat;
     case 5: return pos;
@@ -66,7 +66,7 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
     switch (field$) {
     case 0: target = (java.lang.String)value$; break;
     case 1: form = (java.lang.String)value$; break;
-    case 2: case$ = (java.lang.String)value$; break;
+    case 2: termcase = (java.lang.String)value$; break;
     case 3: lemma = (java.lang.String)value$; break;
     case 4: morphoFeat = (java.lang.String)value$; break;
     case 5: pos = (java.lang.String)value$; break;
@@ -109,18 +109,18 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
-   * Gets the value of the 'case$' field.
+   * Gets the value of the 'termcase' field.
    */
-  public java.lang.String getCase$() {
-    return case$;
+  public java.lang.String getTermcase() {
+    return termcase;
   }
 
   /**
-   * Sets the value of the 'case$' field.
+   * Sets the value of the 'termcase' field.
    * @param value the value to set.
    */
-  public void setCase$(java.lang.String value) {
-    this.case$ = value;
+  public void setTermcase(java.lang.String value) {
+    this.termcase = value;
   }
 
   /**
@@ -251,7 +251,7 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
 
     private java.lang.String target;
     private java.lang.String form;
-    private java.lang.String case$;
+    private java.lang.String termcase;
     private java.lang.String lemma;
     private java.lang.String morphoFeat;
     private java.lang.String pos;
@@ -276,8 +276,8 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
         this.form = data().deepCopy(fields()[1].schema(), other.form);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.case$)) {
-        this.case$ = data().deepCopy(fields()[2].schema(), other.case$);
+      if (isValidValue(fields()[2], other.termcase)) {
+        this.termcase = data().deepCopy(fields()[2].schema(), other.termcase);
         fieldSetFlags()[2] = true;
       }
       if (isValidValue(fields()[3], other.lemma)) {
@@ -321,8 +321,8 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
         this.form = data().deepCopy(fields()[1].schema(), other.form);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.case$)) {
-        this.case$ = data().deepCopy(fields()[2].schema(), other.case$);
+      if (isValidValue(fields()[2], other.termcase)) {
+        this.termcase = data().deepCopy(fields()[2].schema(), other.termcase);
         fieldSetFlags()[2] = true;
       }
       if (isValidValue(fields()[3], other.lemma)) {
@@ -405,27 +405,27 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
       return this;
     }
 
-    /** Gets the value of the 'case$' field */
-    public java.lang.String getCase$() {
-      return case$;
+    /** Gets the value of the 'termcase' field */
+    public java.lang.String getTermcase() {
+      return termcase;
     }
     
-    /** Sets the value of the 'case$' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setCase$(java.lang.String value) {
+    /** Sets the value of the 'termcase' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder setTermcase(java.lang.String value) {
       validate(fields()[2], value);
-      this.case$ = value;
+      this.termcase = value;
       fieldSetFlags()[2] = true;
       return this; 
     }
     
-    /** Checks whether the 'case$' field has been set */
-    public boolean hasCase$() {
+    /** Checks whether the 'termcase' field has been set */
+    public boolean hasTermcase() {
       return fieldSetFlags()[2];
     }
     
-    /** Clears the value of the 'case$' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearCase$() {
-      case$ = null;
+    /** Clears the value of the 'termcase' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder clearTermcase() {
+      termcase = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -611,7 +611,7 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
         Annotation record = new Annotation();
         record.target = fieldSetFlags()[0] ? this.target : (java.lang.String) defaultValue(fields()[0]);
         record.form = fieldSetFlags()[1] ? this.form : (java.lang.String) defaultValue(fields()[1]);
-        record.case$ = fieldSetFlags()[2] ? this.case$ : (java.lang.String) defaultValue(fields()[2]);
+        record.termcase = fieldSetFlags()[2] ? this.termcase : (java.lang.String) defaultValue(fields()[2]);
         record.lemma = fieldSetFlags()[3] ? this.lemma : (java.lang.String) defaultValue(fields()[3]);
         record.morphoFeat = fieldSetFlags()[4] ? this.morphoFeat : (java.lang.String) defaultValue(fields()[4]);
         record.pos = fieldSetFlags()[5] ? this.pos : (java.lang.String) defaultValue(fields()[5]);

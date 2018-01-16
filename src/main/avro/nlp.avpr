@@ -7,7 +7,7 @@
     {"name": "Annotation", "type": "record", "fields": [
       {"name":"target","type":"string"},
       {"name":"form","type":"string"},
-      {"name":"case","type":"string"},
+      {"name":"termcase","type":"string"},
       {"name":"lemma","type":"string"},
       {"name":"morphoFeat","type":"string"},
       {"name":"pos","type":"string"},
