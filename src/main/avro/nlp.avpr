@@ -4,7 +4,18 @@
  "types": [
     {"name": "PoS", "type": "enum","symbols": ["NOUN","VERB","ADJECTIVE","ADVERB","PRONOUN","PREPOSITION","CONJUNCTION","INTERJECTION","ARTICLE"]},
     {"name": "Form", "type": "enum","symbols": ["RAW","LEMMA","STEM"]},
-    {"name": "Annotation", "type": "record", "fields": [ {"name":"target","type":"string"},{"name":"value","type":{"type":"map","values":"string"}}]}
+    {"name": "Annotation", "type": "record", "fields": [
+      {"name":"target","type":"string"},
+      {"name":"form","type":"string"},
+      {"name":"case","type":"string"},
+      {"name":"lemma","type":"string"},
+      {"name":"morphoFeat","type":"string"},
+      {"name":"pos","type":"string"},
+      {"name":"type","type":"string"},
+      {"name":"sentiment","type":"string"},
+      {"name":"offset","type":"string"},
+      {"name":"para","type":"string"}
+    ]}
  ],
 
  "messages": {
