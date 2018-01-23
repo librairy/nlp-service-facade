@@ -16,7 +16,7 @@ public class Annotation extends org.librairy.service.nlp.facade.model.Annotation
 
     public Annotation(org.librairy.service.nlp.facade.model.Annotation annotation){
         try {
-            BeanUtils.copyProperties(annotation,this);
+            BeanUtils.copyProperties(this,annotation);
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         } catch (InvocationTargetException e) {
@@ -29,5 +29,36 @@ public class Annotation extends org.librairy.service.nlp.facade.model.Annotation
     @JsonIgnore
     public Schema getSchema() {
         return super.getSchema();
+    }
+
+
+    @Override
+    @ApiModelProperty(value = "Morphosyntactic feature encoded as a single attribute")
+    public String getMorphoFeat() {
+        return super.getMorphoFeat();
+    }
+
+    @Override
+    @ApiModelProperty(value = "Lemma of the term")
+    public String getLemma() {
+        return super.getLemma();
+    }
+
+    @Override
+    @ApiModelProperty(value = "Type of the term (optional). Currently, 2 values are possible: open and close.")
+    public String getType() {
+        return super.getType();
+    }
+
+    @Override
+    @ApiModelProperty(value = "Part of speech")
+    public String getPos() {
+        return super.getPos();
+    }
+
+    @Override
+    @ApiModelProperty(value="Original form")
+    public String getForm() {
+        return super.getForm();
     }
 }
