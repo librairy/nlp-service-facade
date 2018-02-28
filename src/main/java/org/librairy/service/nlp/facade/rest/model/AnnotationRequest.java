@@ -31,4 +31,12 @@ public class AnnotationRequest {
     public List<PoS> getFilter() {
         return filter;
     }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setFilter(List<PoS> filter) {
+        this.filter = filter;
+    }
 }

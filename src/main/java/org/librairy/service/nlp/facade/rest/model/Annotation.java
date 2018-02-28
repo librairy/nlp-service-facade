@@ -24,6 +24,9 @@ public class Annotation extends org.librairy.service.nlp.facade.model.Annotation
         }
     }
 
+    public Annotation() {
+    }
+
     @Override
     @ApiModelProperty(hidden = true)
     @JsonIgnore

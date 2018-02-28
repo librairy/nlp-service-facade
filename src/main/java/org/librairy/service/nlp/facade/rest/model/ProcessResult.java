@@ -8,15 +8,21 @@ import io.swagger.annotations.ApiModelProperty;
  */
 public class ProcessResult {
 
-    private final String processedText;
+    private String processedText;
 
     public ProcessResult(String processedText) {
         this.processedText = processedText;
     }
 
+    public ProcessResult(){}
+
     @JsonProperty(required = true)
     @ApiModelProperty(notes = "The text processed by the service", required = true)
     public String getProcessedText() {
         return processedText;
+    }
+
+    public void setProcessedText(String processedText) {
+        this.processedText = processedText;
     }
 }

@@ -40,4 +40,16 @@ public class ProcessRequest {
     public Form getForm() {
         return form;
     }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setFilter(List<PoS> filter) {
+        this.filter = filter;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
+    }
 }
