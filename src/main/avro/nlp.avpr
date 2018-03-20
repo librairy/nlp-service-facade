@@ -3,7 +3,7 @@
 
  "types": [
     {"name": "PoS", "type": "enum","symbols": ["NOUN","VERB","ADJECTIVE","ADVERB","PRONOUN","PREPOSITION","CONJUNCTION","INTERJECTION","ARTICLE"]},
-    {"name": "Form", "type": "enum","symbols": ["RAW","LEMMA","STEM"]},
+    {"name": "Form", "type": "enum","symbols": ["RAW","LEMMA"]},
     {"name": "Annotation", "type": "record", "fields": [
       {"name":"target","type":"string"},
       {"name":"form","type":"string"},
