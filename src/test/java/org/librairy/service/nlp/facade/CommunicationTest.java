@@ -2,10 +2,7 @@ package org.librairy.service.nlp.facade;
 
 import org.apache.avro.AvroRemoteException;
 import org.junit.Test;
-import org.librairy.service.nlp.facade.model.Annotation;
-import org.librairy.service.nlp.facade.model.Form;
-import org.librairy.service.nlp.facade.model.NlpService;
-import org.librairy.service.nlp.facade.model.PoS;
+import org.librairy.service.nlp.facade.model.*;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -31,6 +28,11 @@ public class CommunicationTest {
             public List<Annotation> annotate(String text, List<PoS> filter) throws AvroRemoteException {
                 return Collections.emptyList();
             }
+
+            @Override
+            public List<Token> group(String text, List<PoS> filter, Form form) throws AvroRemoteException {
+                return Collections.emptyList();
+            }
         };
         AvroServer server = new AvroServer(customService);
 
@@ -50,6 +52,7 @@ public class CommunicationTest {
             try {
                 client.process(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW);
                 client.annotate(text, Collections.emptyList());
+                client.group(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW);
             } catch (AvroRemoteException e) {
                 e.printStackTrace();
             }

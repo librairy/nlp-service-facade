@@ -15,7 +15,13 @@
       {"name":"sentiment","type":"string"},
       {"name":"offset","type":"string"},
       {"name":"para","type":"string"}
-    ]}
+    ]},
+   {"name": "Token", "type": "record", "fields": [
+     {"name":"target","type":"string"},
+     {"name":"lemma","type":"string"},
+     {"name":"pos","type":"PoS"},
+     {"name":"freq","type":"long"}
+   ]}
  ],
 
  "messages": {
@@ -26,6 +32,10 @@
      "annotate":{
        "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}}],
        "response": {"type" : "array","items":"Annotation"}
+     },
+     "group":{
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "form", "type": "Form"}],
+       "response": {"type" : "array","items":"Token"}
      }
  }
 }
