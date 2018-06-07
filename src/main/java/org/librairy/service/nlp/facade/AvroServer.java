@@ -28,14 +28,14 @@ public class AvroServer {
 
 
     public void open(String host, Integer port) throws IOException {
-        LOG.debug("Trying to start NLP service at "+host+":"+port);
+        LOG.debug("Trying to start the NLP service at "+host+":"+port);
         server = new NettyServer(new SpecificResponder(NlpService.class, service), new InetSocketAddress(InetAddress.getByName(host),port));
-        LOG.info("Avro server listening at: "+host+":"+port);
+        LOG.info("NLP AVRO server listening at: "+host+":"+port);
     }
 
     public void close(){
         if (server != null) server.close();
-        LOG.info("Avro server stopped");
+        LOG.info("NLP AVRO server stopped");
     }
 
 }

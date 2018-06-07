@@ -7,18 +7,12 @@ package org.librairy.service.nlp.facade.model;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Annotation extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Annotation\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"target\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"form\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"termcase\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"morphoFeat\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pos\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sentiment\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"offset\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"para\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Annotation\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"token\",\"type\":{\"type\":\"record\",\"name\":\"Token\",\"fields\":[{\"name\":\"target\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"order\":\"ignore\"},{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"morphoFeat\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\"]},\"order\":\"ignore\"},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"}]}},{\"name\":\"offset\",\"type\":\"long\",\"order\":\"ignore\"},{\"name\":\"sentiment\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"uri\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-   private java.lang.String target;
-   private java.lang.String form;
-   private java.lang.String termcase;
-   private java.lang.String lemma;
-   private java.lang.String morphoFeat;
-   private java.lang.String pos;
-   private java.lang.String type;
+   private org.librairy.service.nlp.facade.model.Token token;
+   private long offset;
    private java.lang.String sentiment;
-   private java.lang.String offset;
-   private java.lang.String para;
+   private java.lang.String uri;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -30,33 +24,21 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    */
-  public Annotation(java.lang.String target, java.lang.String form, java.lang.String termcase, java.lang.String lemma, java.lang.String morphoFeat, java.lang.String pos, java.lang.String type, java.lang.String sentiment, java.lang.String offset, java.lang.String para) {
-    this.target = target;
-    this.form = form;
-    this.termcase = termcase;
-    this.lemma = lemma;
-    this.morphoFeat = morphoFeat;
-    this.pos = pos;
-    this.type = type;
-    this.sentiment = sentiment;
+  public Annotation(org.librairy.service.nlp.facade.model.Token token, java.lang.Long offset, java.lang.String sentiment, java.lang.String uri) {
+    this.token = token;
     this.offset = offset;
-    this.para = para;
+    this.sentiment = sentiment;
+    this.uri = uri;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return target;
-    case 1: return form;
-    case 2: return termcase;
-    case 3: return lemma;
-    case 4: return morphoFeat;
-    case 5: return pos;
-    case 6: return type;
-    case 7: return sentiment;
-    case 8: return offset;
-    case 9: return para;
+    case 0: return token;
+    case 1: return offset;
+    case 2: return sentiment;
+    case 3: return uri;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -64,123 +46,42 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: target = (java.lang.String)value$; break;
-    case 1: form = (java.lang.String)value$; break;
-    case 2: termcase = (java.lang.String)value$; break;
-    case 3: lemma = (java.lang.String)value$; break;
-    case 4: morphoFeat = (java.lang.String)value$; break;
-    case 5: pos = (java.lang.String)value$; break;
-    case 6: type = (java.lang.String)value$; break;
-    case 7: sentiment = (java.lang.String)value$; break;
-    case 8: offset = (java.lang.String)value$; break;
-    case 9: para = (java.lang.String)value$; break;
+    case 0: token = (org.librairy.service.nlp.facade.model.Token)value$; break;
+    case 1: offset = (java.lang.Long)value$; break;
+    case 2: sentiment = (java.lang.String)value$; break;
+    case 3: uri = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   /**
-   * Gets the value of the 'target' field.
+   * Gets the value of the 'token' field.
    */
-  public java.lang.String getTarget() {
-    return target;
+  public org.librairy.service.nlp.facade.model.Token getToken() {
+    return token;
   }
 
   /**
-   * Sets the value of the 'target' field.
+   * Sets the value of the 'token' field.
    * @param value the value to set.
    */
-  public void setTarget(java.lang.String value) {
-    this.target = value;
+  public void setToken(org.librairy.service.nlp.facade.model.Token value) {
+    this.token = value;
   }
 
   /**
-   * Gets the value of the 'form' field.
+   * Gets the value of the 'offset' field.
    */
-  public java.lang.String getForm() {
-    return form;
+  public java.lang.Long getOffset() {
+    return offset;
   }
 
   /**
-   * Sets the value of the 'form' field.
+   * Sets the value of the 'offset' field.
    * @param value the value to set.
    */
-  public void setForm(java.lang.String value) {
-    this.form = value;
-  }
-
-  /**
-   * Gets the value of the 'termcase' field.
-   */
-  public java.lang.String getTermcase() {
-    return termcase;
-  }
-
-  /**
-   * Sets the value of the 'termcase' field.
-   * @param value the value to set.
-   */
-  public void setTermcase(java.lang.String value) {
-    this.termcase = value;
-  }
-
-  /**
-   * Gets the value of the 'lemma' field.
-   */
-  public java.lang.String getLemma() {
-    return lemma;
-  }
-
-  /**
-   * Sets the value of the 'lemma' field.
-   * @param value the value to set.
-   */
-  public void setLemma(java.lang.String value) {
-    this.lemma = value;
-  }
-
-  /**
-   * Gets the value of the 'morphoFeat' field.
-   */
-  public java.lang.String getMorphoFeat() {
-    return morphoFeat;
-  }
-
-  /**
-   * Sets the value of the 'morphoFeat' field.
-   * @param value the value to set.
-   */
-  public void setMorphoFeat(java.lang.String value) {
-    this.morphoFeat = value;
-  }
-
-  /**
-   * Gets the value of the 'pos' field.
-   */
-  public java.lang.String getPos() {
-    return pos;
-  }
-
-  /**
-   * Sets the value of the 'pos' field.
-   * @param value the value to set.
-   */
-  public void setPos(java.lang.String value) {
-    this.pos = value;
-  }
-
-  /**
-   * Gets the value of the 'type' field.
-   */
-  public java.lang.String getType() {
-    return type;
-  }
-
-  /**
-   * Sets the value of the 'type' field.
-   * @param value the value to set.
-   */
-  public void setType(java.lang.String value) {
-    this.type = value;
+  public void setOffset(java.lang.Long value) {
+    this.offset = value;
   }
 
   /**
@@ -199,33 +100,18 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
-   * Gets the value of the 'offset' field.
+   * Gets the value of the 'uri' field.
    */
-  public java.lang.String getOffset() {
-    return offset;
+  public java.lang.String getUri() {
+    return uri;
   }
 
   /**
-   * Sets the value of the 'offset' field.
+   * Sets the value of the 'uri' field.
    * @param value the value to set.
    */
-  public void setOffset(java.lang.String value) {
-    this.offset = value;
-  }
-
-  /**
-   * Gets the value of the 'para' field.
-   */
-  public java.lang.String getPara() {
-    return para;
-  }
-
-  /**
-   * Sets the value of the 'para' field.
-   * @param value the value to set.
-   */
-  public void setPara(java.lang.String value) {
-    this.para = value;
+  public void setUri(java.lang.String value) {
+    this.uri = value;
   }
 
   /** Creates a new Annotation RecordBuilder */
@@ -249,16 +135,10 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Annotation>
     implements org.apache.avro.data.RecordBuilder<Annotation> {
 
-    private java.lang.String target;
-    private java.lang.String form;
-    private java.lang.String termcase;
-    private java.lang.String lemma;
-    private java.lang.String morphoFeat;
-    private java.lang.String pos;
-    private java.lang.String type;
+    private org.librairy.service.nlp.facade.model.Token token;
+    private long offset;
     private java.lang.String sentiment;
-    private java.lang.String offset;
-    private java.lang.String para;
+    private java.lang.String uri;
 
     /** Creates a new Builder */
     private Builder() {
@@ -268,265 +148,91 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
     /** Creates a Builder by copying an existing Builder */
     private Builder(org.librairy.service.nlp.facade.model.Annotation.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.target)) {
-        this.target = data().deepCopy(fields()[0].schema(), other.target);
+      if (isValidValue(fields()[0], other.token)) {
+        this.token = data().deepCopy(fields()[0].schema(), other.token);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.form)) {
-        this.form = data().deepCopy(fields()[1].schema(), other.form);
+      if (isValidValue(fields()[1], other.offset)) {
+        this.offset = data().deepCopy(fields()[1].schema(), other.offset);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.termcase)) {
-        this.termcase = data().deepCopy(fields()[2].schema(), other.termcase);
+      if (isValidValue(fields()[2], other.sentiment)) {
+        this.sentiment = data().deepCopy(fields()[2].schema(), other.sentiment);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.lemma)) {
-        this.lemma = data().deepCopy(fields()[3].schema(), other.lemma);
+      if (isValidValue(fields()[3], other.uri)) {
+        this.uri = data().deepCopy(fields()[3].schema(), other.uri);
         fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.morphoFeat)) {
-        this.morphoFeat = data().deepCopy(fields()[4].schema(), other.morphoFeat);
-        fieldSetFlags()[4] = true;
-      }
-      if (isValidValue(fields()[5], other.pos)) {
-        this.pos = data().deepCopy(fields()[5].schema(), other.pos);
-        fieldSetFlags()[5] = true;
-      }
-      if (isValidValue(fields()[6], other.type)) {
-        this.type = data().deepCopy(fields()[6].schema(), other.type);
-        fieldSetFlags()[6] = true;
-      }
-      if (isValidValue(fields()[7], other.sentiment)) {
-        this.sentiment = data().deepCopy(fields()[7].schema(), other.sentiment);
-        fieldSetFlags()[7] = true;
-      }
-      if (isValidValue(fields()[8], other.offset)) {
-        this.offset = data().deepCopy(fields()[8].schema(), other.offset);
-        fieldSetFlags()[8] = true;
-      }
-      if (isValidValue(fields()[9], other.para)) {
-        this.para = data().deepCopy(fields()[9].schema(), other.para);
-        fieldSetFlags()[9] = true;
       }
     }
     
     /** Creates a Builder by copying an existing Annotation instance */
     private Builder(org.librairy.service.nlp.facade.model.Annotation other) {
             super(org.librairy.service.nlp.facade.model.Annotation.SCHEMA$);
-      if (isValidValue(fields()[0], other.target)) {
-        this.target = data().deepCopy(fields()[0].schema(), other.target);
+      if (isValidValue(fields()[0], other.token)) {
+        this.token = data().deepCopy(fields()[0].schema(), other.token);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.form)) {
-        this.form = data().deepCopy(fields()[1].schema(), other.form);
+      if (isValidValue(fields()[1], other.offset)) {
+        this.offset = data().deepCopy(fields()[1].schema(), other.offset);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.termcase)) {
-        this.termcase = data().deepCopy(fields()[2].schema(), other.termcase);
+      if (isValidValue(fields()[2], other.sentiment)) {
+        this.sentiment = data().deepCopy(fields()[2].schema(), other.sentiment);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.lemma)) {
-        this.lemma = data().deepCopy(fields()[3].schema(), other.lemma);
+      if (isValidValue(fields()[3], other.uri)) {
+        this.uri = data().deepCopy(fields()[3].schema(), other.uri);
         fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.morphoFeat)) {
-        this.morphoFeat = data().deepCopy(fields()[4].schema(), other.morphoFeat);
-        fieldSetFlags()[4] = true;
-      }
-      if (isValidValue(fields()[5], other.pos)) {
-        this.pos = data().deepCopy(fields()[5].schema(), other.pos);
-        fieldSetFlags()[5] = true;
-      }
-      if (isValidValue(fields()[6], other.type)) {
-        this.type = data().deepCopy(fields()[6].schema(), other.type);
-        fieldSetFlags()[6] = true;
-      }
-      if (isValidValue(fields()[7], other.sentiment)) {
-        this.sentiment = data().deepCopy(fields()[7].schema(), other.sentiment);
-        fieldSetFlags()[7] = true;
-      }
-      if (isValidValue(fields()[8], other.offset)) {
-        this.offset = data().deepCopy(fields()[8].schema(), other.offset);
-        fieldSetFlags()[8] = true;
-      }
-      if (isValidValue(fields()[9], other.para)) {
-        this.para = data().deepCopy(fields()[9].schema(), other.para);
-        fieldSetFlags()[9] = true;
       }
     }
 
-    /** Gets the value of the 'target' field */
-    public java.lang.String getTarget() {
-      return target;
+    /** Gets the value of the 'token' field */
+    public org.librairy.service.nlp.facade.model.Token getToken() {
+      return token;
     }
     
-    /** Sets the value of the 'target' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setTarget(java.lang.String value) {
+    /** Sets the value of the 'token' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder setToken(org.librairy.service.nlp.facade.model.Token value) {
       validate(fields()[0], value);
-      this.target = value;
+      this.token = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
     
-    /** Checks whether the 'target' field has been set */
-    public boolean hasTarget() {
+    /** Checks whether the 'token' field has been set */
+    public boolean hasToken() {
       return fieldSetFlags()[0];
     }
     
-    /** Clears the value of the 'target' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearTarget() {
-      target = null;
+    /** Clears the value of the 'token' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder clearToken() {
+      token = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
-    /** Gets the value of the 'form' field */
-    public java.lang.String getForm() {
-      return form;
+    /** Gets the value of the 'offset' field */
+    public java.lang.Long getOffset() {
+      return offset;
     }
     
-    /** Sets the value of the 'form' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setForm(java.lang.String value) {
+    /** Sets the value of the 'offset' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder setOffset(long value) {
       validate(fields()[1], value);
-      this.form = value;
+      this.offset = value;
       fieldSetFlags()[1] = true;
       return this; 
     }
     
-    /** Checks whether the 'form' field has been set */
-    public boolean hasForm() {
+    /** Checks whether the 'offset' field has been set */
+    public boolean hasOffset() {
       return fieldSetFlags()[1];
     }
     
-    /** Clears the value of the 'form' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearForm() {
-      form = null;
+    /** Clears the value of the 'offset' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder clearOffset() {
       fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /** Gets the value of the 'termcase' field */
-    public java.lang.String getTermcase() {
-      return termcase;
-    }
-    
-    /** Sets the value of the 'termcase' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setTermcase(java.lang.String value) {
-      validate(fields()[2], value);
-      this.termcase = value;
-      fieldSetFlags()[2] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'termcase' field has been set */
-    public boolean hasTermcase() {
-      return fieldSetFlags()[2];
-    }
-    
-    /** Clears the value of the 'termcase' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearTermcase() {
-      termcase = null;
-      fieldSetFlags()[2] = false;
-      return this;
-    }
-
-    /** Gets the value of the 'lemma' field */
-    public java.lang.String getLemma() {
-      return lemma;
-    }
-    
-    /** Sets the value of the 'lemma' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setLemma(java.lang.String value) {
-      validate(fields()[3], value);
-      this.lemma = value;
-      fieldSetFlags()[3] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'lemma' field has been set */
-    public boolean hasLemma() {
-      return fieldSetFlags()[3];
-    }
-    
-    /** Clears the value of the 'lemma' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearLemma() {
-      lemma = null;
-      fieldSetFlags()[3] = false;
-      return this;
-    }
-
-    /** Gets the value of the 'morphoFeat' field */
-    public java.lang.String getMorphoFeat() {
-      return morphoFeat;
-    }
-    
-    /** Sets the value of the 'morphoFeat' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setMorphoFeat(java.lang.String value) {
-      validate(fields()[4], value);
-      this.morphoFeat = value;
-      fieldSetFlags()[4] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'morphoFeat' field has been set */
-    public boolean hasMorphoFeat() {
-      return fieldSetFlags()[4];
-    }
-    
-    /** Clears the value of the 'morphoFeat' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearMorphoFeat() {
-      morphoFeat = null;
-      fieldSetFlags()[4] = false;
-      return this;
-    }
-
-    /** Gets the value of the 'pos' field */
-    public java.lang.String getPos() {
-      return pos;
-    }
-    
-    /** Sets the value of the 'pos' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setPos(java.lang.String value) {
-      validate(fields()[5], value);
-      this.pos = value;
-      fieldSetFlags()[5] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'pos' field has been set */
-    public boolean hasPos() {
-      return fieldSetFlags()[5];
-    }
-    
-    /** Clears the value of the 'pos' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearPos() {
-      pos = null;
-      fieldSetFlags()[5] = false;
-      return this;
-    }
-
-    /** Gets the value of the 'type' field */
-    public java.lang.String getType() {
-      return type;
-    }
-    
-    /** Sets the value of the 'type' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setType(java.lang.String value) {
-      validate(fields()[6], value);
-      this.type = value;
-      fieldSetFlags()[6] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'type' field has been set */
-    public boolean hasType() {
-      return fieldSetFlags()[6];
-    }
-    
-    /** Clears the value of the 'type' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearType() {
-      type = null;
-      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -537,71 +243,46 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
     
     /** Sets the value of the 'sentiment' field */
     public org.librairy.service.nlp.facade.model.Annotation.Builder setSentiment(java.lang.String value) {
-      validate(fields()[7], value);
+      validate(fields()[2], value);
       this.sentiment = value;
-      fieldSetFlags()[7] = true;
+      fieldSetFlags()[2] = true;
       return this; 
     }
     
     /** Checks whether the 'sentiment' field has been set */
     public boolean hasSentiment() {
-      return fieldSetFlags()[7];
+      return fieldSetFlags()[2];
     }
     
     /** Clears the value of the 'sentiment' field */
     public org.librairy.service.nlp.facade.model.Annotation.Builder clearSentiment() {
       sentiment = null;
-      fieldSetFlags()[7] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
-    /** Gets the value of the 'offset' field */
-    public java.lang.String getOffset() {
-      return offset;
+    /** Gets the value of the 'uri' field */
+    public java.lang.String getUri() {
+      return uri;
     }
     
-    /** Sets the value of the 'offset' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setOffset(java.lang.String value) {
-      validate(fields()[8], value);
-      this.offset = value;
-      fieldSetFlags()[8] = true;
+    /** Sets the value of the 'uri' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder setUri(java.lang.String value) {
+      validate(fields()[3], value);
+      this.uri = value;
+      fieldSetFlags()[3] = true;
       return this; 
     }
     
-    /** Checks whether the 'offset' field has been set */
-    public boolean hasOffset() {
-      return fieldSetFlags()[8];
+    /** Checks whether the 'uri' field has been set */
+    public boolean hasUri() {
+      return fieldSetFlags()[3];
     }
     
-    /** Clears the value of the 'offset' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearOffset() {
-      offset = null;
-      fieldSetFlags()[8] = false;
-      return this;
-    }
-
-    /** Gets the value of the 'para' field */
-    public java.lang.String getPara() {
-      return para;
-    }
-    
-    /** Sets the value of the 'para' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setPara(java.lang.String value) {
-      validate(fields()[9], value);
-      this.para = value;
-      fieldSetFlags()[9] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'para' field has been set */
-    public boolean hasPara() {
-      return fieldSetFlags()[9];
-    }
-    
-    /** Clears the value of the 'para' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearPara() {
-      para = null;
-      fieldSetFlags()[9] = false;
+    /** Clears the value of the 'uri' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder clearUri() {
+      uri = null;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -609,16 +290,10 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
     public Annotation build() {
       try {
         Annotation record = new Annotation();
-        record.target = fieldSetFlags()[0] ? this.target : (java.lang.String) defaultValue(fields()[0]);
-        record.form = fieldSetFlags()[1] ? this.form : (java.lang.String) defaultValue(fields()[1]);
-        record.termcase = fieldSetFlags()[2] ? this.termcase : (java.lang.String) defaultValue(fields()[2]);
-        record.lemma = fieldSetFlags()[3] ? this.lemma : (java.lang.String) defaultValue(fields()[3]);
-        record.morphoFeat = fieldSetFlags()[4] ? this.morphoFeat : (java.lang.String) defaultValue(fields()[4]);
-        record.pos = fieldSetFlags()[5] ? this.pos : (java.lang.String) defaultValue(fields()[5]);
-        record.type = fieldSetFlags()[6] ? this.type : (java.lang.String) defaultValue(fields()[6]);
-        record.sentiment = fieldSetFlags()[7] ? this.sentiment : (java.lang.String) defaultValue(fields()[7]);
-        record.offset = fieldSetFlags()[8] ? this.offset : (java.lang.String) defaultValue(fields()[8]);
-        record.para = fieldSetFlags()[9] ? this.para : (java.lang.String) defaultValue(fields()[9]);
+        record.token = fieldSetFlags()[0] ? this.token : (org.librairy.service.nlp.facade.model.Token) defaultValue(fields()[0]);
+        record.offset = fieldSetFlags()[1] ? this.offset : (java.lang.Long) defaultValue(fields()[1]);
+        record.sentiment = fieldSetFlags()[2] ? this.sentiment : (java.lang.String) defaultValue(fields()[2]);
+        record.uri = fieldSetFlags()[3] ? this.uri : (java.lang.String) defaultValue(fields()[3]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

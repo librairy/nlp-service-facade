@@ -20,19 +20,20 @@ public class CommunicationTest {
 
         NlpService customService = new NlpService() {
             @Override
-            public String process(String text, List<PoS> filter, Form form) throws AvroRemoteException {
+            public String tokens(String text, List<PoS> filter, Form form, boolean ngram) throws AvroRemoteException {
                 return "text processed";
             }
 
             @Override
-            public List<Annotation> annotate(String text, List<PoS> filter) throws AvroRemoteException {
+            public List<Annotation> annotations(String text, List<PoS> filter, boolean ngram, boolean references) throws AvroRemoteException {
                 return Collections.emptyList();
             }
 
             @Override
-            public List<Token> group(String text, List<PoS> filter, Form form) throws AvroRemoteException {
+            public List<Group> groups(String text, List<PoS> filter, boolean ngram, boolean references) throws AvroRemoteException {
                 return Collections.emptyList();
             }
+
         };
         AvroServer server = new AvroServer(customService);
 
@@ -50,9 +51,9 @@ public class CommunicationTest {
 
         texts.forEach(text -> {
             try {
-                client.process(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW);
-                client.annotate(text, Collections.emptyList());
-                client.group(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW);
+                client.tokens(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, false);
+                client.annotations(text, Collections.emptyList(), false, false);
+                client.groups(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, false, false);
             } catch (AvroRemoteException e) {
                 e.printStackTrace();
             }

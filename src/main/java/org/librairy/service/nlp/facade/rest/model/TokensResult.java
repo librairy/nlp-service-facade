@@ -6,23 +6,23 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * @author Badenes Olmedo, Carlos <cbadenes@fi.upm.es>
  */
-public class ProcessResult {
+public class TokensResult {
 
-    private String processedText;
+    private String tokens;
 
-    public ProcessResult(String processedText) {
-        this.processedText = processedText;
+    public TokensResult(String tokens) {
+        this.tokens = tokens;
     }
 
-    public ProcessResult(){}
+    public TokensResult(){}
 
     @JsonProperty(required = true)
     @ApiModelProperty(notes = "The text processed by the service", required = true)
-    public String getProcessedText() {
-        return processedText;
+    public String getTokens() {
+        return tokens;
     }
 
-    public void setProcessedText(String processedText) {
-        this.processedText = processedText;
+    public void setTokens(String tokens) {
+        this.tokens = tokens;
     }
 }

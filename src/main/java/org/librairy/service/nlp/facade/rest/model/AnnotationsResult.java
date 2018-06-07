@@ -8,15 +8,15 @@ import java.util.List;
 /**
  * @author Badenes Olmedo, Carlos <cbadenes@fi.upm.es>
  */
-public class AnnotationResult {
+public class AnnotationsResult {
 
     private List<Annotation> annotations;
 
-    public AnnotationResult(List<Annotation> annotations) {
+    public AnnotationsResult(List<Annotation> annotations) {
         this.annotations = annotations;
     }
 
-    public AnnotationResult(){}
+    public AnnotationsResult(){}
 
     @JsonProperty(required = true)
     @ApiModelProperty(notes = "list of annotations created by the service", required = true)

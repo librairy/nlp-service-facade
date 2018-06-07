@@ -36,27 +36,34 @@ public class Token extends org.librairy.service.nlp.facade.model.Token {
     }
 
     @Override
-    @ApiModelProperty(value = "Lemma of the term")
-    public String getLemma() {
-        return super.getLemma();
-    }
-
-
-    @Override
-    @ApiModelProperty(value = "Part of speech")
-    public PoS getPos() {
-        return super.getPos();
-    }
-
-    @Override
     @ApiModelProperty(value="Original form")
     public String getTarget() {
         return super.getTarget();
     }
 
+
     @Override
-    @ApiModelProperty(value="number of times")
-    public Long getFreq() {
-        return super.getFreq();
+    @ApiModelProperty(value = "Lemma of the term (optional)")
+    public String getLemma() {
+        return super.getLemma();
     }
+
+    @Override
+    @ApiModelProperty(value = "Morphosyntactic feature encoded as a single attribute (optional)")
+    public String getMorphoFeat() {
+        return super.getMorphoFeat();
+    }
+
+    @Override
+    @ApiModelProperty(value = "Part of speech (optional)")
+    public PoS getPos() {
+        return super.getPos();
+    }
+
+    @Override
+    @ApiModelProperty(value = "Category of the term (optional)")
+    public String getType() {
+        return super.getType();
+    }
+
 }

@@ -33,29 +33,29 @@ public class AvroClient {
         if (client != null) client.close();
     }
 
-    public String process(String text, List<PoS> filter, Form form) throws AvroRemoteException {
+    public String tokens(String text, List<PoS> filter, Form form, Boolean multigrams) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.process with message:  \"" + text +"\" , filter: " + filter + ", form: " + form);
-        CharSequence result = proxy.process(text, filter, form);
+        LOG.debug("Calling proxy.tokens with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", multigrams: " + multigrams);
+        CharSequence result = proxy.tokens(text, filter, form, multigrams);
         LOG.debug("Result: " + result);
         return result.toString();
     }
 
-    public List<Annotation> annotate(String text, List<PoS> filter) throws AvroRemoteException {
+    public List<Annotation> annotations(String text, List<PoS> filter, Boolean multigrams, Boolean references) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.annotate with message:  \"" + text +"\" , filter: " + filter);
-        List<Annotation> annotations = proxy.annotate(text, filter);
+        LOG.debug("Calling proxy.annotations with message:  \"" + text +"\" , filter: " + filter + ", multigrams: " + multigrams + ", references:" + references);
+        List<Annotation> annotations = proxy.annotations(text, filter, multigrams, references);
         LOG.debug("Result: " + annotations);
         return annotations;
     }
 
-    public List<Token> group(String text, List<PoS> filter, Form form) throws AvroRemoteException {
+    public List<Group> groups(String text, List<PoS> filter, Form form, Boolean multigrams, Boolean references) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.group with message:  \"" + text +"\" , filter: " + filter + ", form: " + form);
-        List<Token> result = proxy.group(text, filter, form);
+        LOG.debug("Calling proxy.groups with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", multigrams: " + multigrams + ", references:" + references);
+        List<Group> result = proxy.groups(text, filter, multigrams, references);
         LOG.debug("Result: " + result);
         return result;
     }

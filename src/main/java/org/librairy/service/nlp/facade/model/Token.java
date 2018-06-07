@@ -7,12 +7,13 @@ package org.librairy.service.nlp.facade.model;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Token extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Token\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"target\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\"]}},{\"name\":\"freq\",\"type\":\"long\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Token\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"target\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"order\":\"ignore\"},{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"morphoFeat\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\"]},\"order\":\"ignore\"},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
    private java.lang.String target;
    private java.lang.String lemma;
+   private java.lang.String morphoFeat;
    private org.librairy.service.nlp.facade.model.PoS pos;
-   private long freq;
+   private java.lang.String type;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -24,11 +25,12 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
   /**
    * All-args constructor.
    */
-  public Token(java.lang.String target, java.lang.String lemma, org.librairy.service.nlp.facade.model.PoS pos, java.lang.Long freq) {
+  public Token(java.lang.String target, java.lang.String lemma, java.lang.String morphoFeat, org.librairy.service.nlp.facade.model.PoS pos, java.lang.String type) {
     this.target = target;
     this.lemma = lemma;
+    this.morphoFeat = morphoFeat;
     this.pos = pos;
-    this.freq = freq;
+    this.type = type;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -37,8 +39,9 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
     switch (field$) {
     case 0: return target;
     case 1: return lemma;
-    case 2: return pos;
-    case 3: return freq;
+    case 2: return morphoFeat;
+    case 3: return pos;
+    case 4: return type;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -48,8 +51,9 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
     switch (field$) {
     case 0: target = (java.lang.String)value$; break;
     case 1: lemma = (java.lang.String)value$; break;
-    case 2: pos = (org.librairy.service.nlp.facade.model.PoS)value$; break;
-    case 3: freq = (java.lang.Long)value$; break;
+    case 2: morphoFeat = (java.lang.String)value$; break;
+    case 3: pos = (org.librairy.service.nlp.facade.model.PoS)value$; break;
+    case 4: type = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -85,6 +89,21 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   /**
+   * Gets the value of the 'morphoFeat' field.
+   */
+  public java.lang.String getMorphoFeat() {
+    return morphoFeat;
+  }
+
+  /**
+   * Sets the value of the 'morphoFeat' field.
+   * @param value the value to set.
+   */
+  public void setMorphoFeat(java.lang.String value) {
+    this.morphoFeat = value;
+  }
+
+  /**
    * Gets the value of the 'pos' field.
    */
   public org.librairy.service.nlp.facade.model.PoS getPos() {
@@ -100,18 +119,18 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   /**
-   * Gets the value of the 'freq' field.
+   * Gets the value of the 'type' field.
    */
-  public java.lang.Long getFreq() {
-    return freq;
+  public java.lang.String getType() {
+    return type;
   }
 
   /**
-   * Sets the value of the 'freq' field.
+   * Sets the value of the 'type' field.
    * @param value the value to set.
    */
-  public void setFreq(java.lang.Long value) {
-    this.freq = value;
+  public void setType(java.lang.String value) {
+    this.type = value;
   }
 
   /** Creates a new Token RecordBuilder */
@@ -137,8 +156,9 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
 
     private java.lang.String target;
     private java.lang.String lemma;
+    private java.lang.String morphoFeat;
     private org.librairy.service.nlp.facade.model.PoS pos;
-    private long freq;
+    private java.lang.String type;
 
     /** Creates a new Builder */
     private Builder() {
@@ -156,13 +176,17 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
         this.lemma = data().deepCopy(fields()[1].schema(), other.lemma);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.pos)) {
-        this.pos = data().deepCopy(fields()[2].schema(), other.pos);
+      if (isValidValue(fields()[2], other.morphoFeat)) {
+        this.morphoFeat = data().deepCopy(fields()[2].schema(), other.morphoFeat);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.freq)) {
-        this.freq = data().deepCopy(fields()[3].schema(), other.freq);
+      if (isValidValue(fields()[3], other.pos)) {
+        this.pos = data().deepCopy(fields()[3].schema(), other.pos);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.type)) {
+        this.type = data().deepCopy(fields()[4].schema(), other.type);
+        fieldSetFlags()[4] = true;
       }
     }
     
@@ -177,13 +201,17 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
         this.lemma = data().deepCopy(fields()[1].schema(), other.lemma);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.pos)) {
-        this.pos = data().deepCopy(fields()[2].schema(), other.pos);
+      if (isValidValue(fields()[2], other.morphoFeat)) {
+        this.morphoFeat = data().deepCopy(fields()[2].schema(), other.morphoFeat);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.freq)) {
-        this.freq = data().deepCopy(fields()[3].schema(), other.freq);
+      if (isValidValue(fields()[3], other.pos)) {
+        this.pos = data().deepCopy(fields()[3].schema(), other.pos);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.type)) {
+        this.type = data().deepCopy(fields()[4].schema(), other.type);
+        fieldSetFlags()[4] = true;
       }
     }
 
@@ -237,6 +265,31 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
       return this;
     }
 
+    /** Gets the value of the 'morphoFeat' field */
+    public java.lang.String getMorphoFeat() {
+      return morphoFeat;
+    }
+    
+    /** Sets the value of the 'morphoFeat' field */
+    public org.librairy.service.nlp.facade.model.Token.Builder setMorphoFeat(java.lang.String value) {
+      validate(fields()[2], value);
+      this.morphoFeat = value;
+      fieldSetFlags()[2] = true;
+      return this; 
+    }
+    
+    /** Checks whether the 'morphoFeat' field has been set */
+    public boolean hasMorphoFeat() {
+      return fieldSetFlags()[2];
+    }
+    
+    /** Clears the value of the 'morphoFeat' field */
+    public org.librairy.service.nlp.facade.model.Token.Builder clearMorphoFeat() {
+      morphoFeat = null;
+      fieldSetFlags()[2] = false;
+      return this;
+    }
+
     /** Gets the value of the 'pos' field */
     public org.librairy.service.nlp.facade.model.PoS getPos() {
       return pos;
@@ -244,45 +297,46 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
     
     /** Sets the value of the 'pos' field */
     public org.librairy.service.nlp.facade.model.Token.Builder setPos(org.librairy.service.nlp.facade.model.PoS value) {
-      validate(fields()[2], value);
+      validate(fields()[3], value);
       this.pos = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this; 
     }
     
     /** Checks whether the 'pos' field has been set */
     public boolean hasPos() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
     
     /** Clears the value of the 'pos' field */
     public org.librairy.service.nlp.facade.model.Token.Builder clearPos() {
       pos = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
-    /** Gets the value of the 'freq' field */
-    public java.lang.Long getFreq() {
-      return freq;
+    /** Gets the value of the 'type' field */
+    public java.lang.String getType() {
+      return type;
     }
     
-    /** Sets the value of the 'freq' field */
-    public org.librairy.service.nlp.facade.model.Token.Builder setFreq(long value) {
-      validate(fields()[3], value);
-      this.freq = value;
-      fieldSetFlags()[3] = true;
+    /** Sets the value of the 'type' field */
+    public org.librairy.service.nlp.facade.model.Token.Builder setType(java.lang.String value) {
+      validate(fields()[4], value);
+      this.type = value;
+      fieldSetFlags()[4] = true;
       return this; 
     }
     
-    /** Checks whether the 'freq' field has been set */
-    public boolean hasFreq() {
-      return fieldSetFlags()[3];
+    /** Checks whether the 'type' field has been set */
+    public boolean hasType() {
+      return fieldSetFlags()[4];
     }
     
-    /** Clears the value of the 'freq' field */
-    public org.librairy.service.nlp.facade.model.Token.Builder clearFreq() {
-      fieldSetFlags()[3] = false;
+    /** Clears the value of the 'type' field */
+    public org.librairy.service.nlp.facade.model.Token.Builder clearType() {
+      type = null;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -292,8 +346,9 @@ public class Token extends org.apache.avro.specific.SpecificRecordBase implement
         Token record = new Token();
         record.target = fieldSetFlags()[0] ? this.target : (java.lang.String) defaultValue(fields()[0]);
         record.lemma = fieldSetFlags()[1] ? this.lemma : (java.lang.String) defaultValue(fields()[1]);
-        record.pos = fieldSetFlags()[2] ? this.pos : (org.librairy.service.nlp.facade.model.PoS) defaultValue(fields()[2]);
-        record.freq = fieldSetFlags()[3] ? this.freq : (java.lang.Long) defaultValue(fields()[3]);
+        record.morphoFeat = fieldSetFlags()[2] ? this.morphoFeat : (java.lang.String) defaultValue(fields()[2]);
+        record.pos = fieldSetFlags()[3] ? this.pos : (org.librairy.service.nlp.facade.model.PoS) defaultValue(fields()[3]);
+        record.type = fieldSetFlags()[4] ? this.type : (java.lang.String) defaultValue(fields()[4]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

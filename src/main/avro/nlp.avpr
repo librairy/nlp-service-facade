@@ -4,38 +4,39 @@
  "types": [
     {"name": "PoS", "type": "enum","symbols": ["NOUN","VERB","ADJECTIVE","ADVERB","PRONOUN","PREPOSITION","CONJUNCTION","INTERJECTION","ARTICLE"]},
     {"name": "Form", "type": "enum","symbols": ["RAW","LEMMA"]},
-    {"name": "Annotation", "type": "record", "fields": [
-      {"name":"target","type":"string"},
-      {"name":"form","type":"string"},
-      {"name":"termcase","type":"string"},
-      {"name":"lemma","type":"string"},
-      {"name":"morphoFeat","type":"string"},
-      {"name":"pos","type":"string"},
-      {"name":"type","type":"string"},
-      {"name":"sentiment","type":"string"},
-      {"name":"offset","type":"string"},
-      {"name":"para","type":"string"}
-    ]},
-   {"name": "Token", "type": "record", "fields": [
-     {"name":"target","type":"string"},
+    {"name": "Token", "type": "record", "fields": [
+     {"name":"target","type":"string","order":"ignore"},
      {"name":"lemma","type":"string"},
-     {"name":"pos","type":"PoS"},
-     {"name":"freq","type":"long"}
+     {"name":"morphoFeat","type":["null","string"],"default":null,"order":"ignore"},
+     {"name":"pos","type":"PoS","order":"ignore"},
+     {"name":"type","type":["null","string"],"default":null,"order":"ignore"}
+    ]},
+    {"name": "Annotation", "type": "record", "fields": [
+      {"name":"token","type":"Token"},
+      {"name":"offset","type":"long","order":"ignore"},
+      {"name":"sentiment","type":["null","string"],"default":null,"order":"ignore"},
+      {"name":"uri","type":["null","string"],"default":null,"order":"ignore"}
+    ]},
+   {"name": "Group", "type": "record", "fields": [
+     {"name":"lemma","type":"string"},
+     {"name":"pos","type":"PoS","order":"ignore"},
+     {"name":"uri","type":["null","string"],"default":null,"order":"ignore"},
+     {"name":"freq","type":"long","order":"ignore"}
    ]}
  ],
 
  "messages": {
-     "process": {
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "form", "type": "Form"}],
+     "tokens": {
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "form", "type": "Form"},{"name": "multigrams", "type": "boolean"}],
        "response": "string"
      },
-     "annotate":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}}],
+     "annotations":{
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"}],
        "response": {"type" : "array","items":"Annotation"}
      },
-     "group":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "form", "type": "Form"}],
-       "response": {"type" : "array","items":"Token"}
+     "groups":{
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"}],
+       "response": {"type" : "array","items":"Group"}
      }
  }
 }
