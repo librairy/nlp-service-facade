@@ -27,4 +27,8 @@ public class AnnotationsResult {
     public void setAnnotations(List<Annotation> annotations) {
         this.annotations = annotations;
     }
+
+    public void setAnnotatedText(List<Annotation> annotations) {
+        this.annotations = annotations;
+    }
 }

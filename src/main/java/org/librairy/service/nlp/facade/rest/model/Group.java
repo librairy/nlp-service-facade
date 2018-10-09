@@ -37,8 +37,8 @@ public class Group extends org.librairy.service.nlp.facade.model.Group {
 
     @Override
     @ApiModelProperty(value = "unified expression")
-    public String getLemma() {
-        return super.getLemma();
+    public String getToken() {
+        return super.getToken();
     }
 
     @Override

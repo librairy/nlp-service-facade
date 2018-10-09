@@ -7,9 +7,9 @@ package org.librairy.service.nlp.facade.model;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Group extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Group\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\"]},\"order\":\"ignore\"},{\"name\":\"uri\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"freq\",\"type\":\"long\",\"order\":\"ignore\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Group\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"token\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\"]},\"order\":\"ignore\"},{\"name\":\"uri\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"freq\",\"type\":\"long\",\"order\":\"ignore\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-   private java.lang.String lemma;
+   private java.lang.String token;
    private org.librairy.service.nlp.facade.model.PoS pos;
    private java.lang.String uri;
    private long freq;
@@ -24,8 +24,8 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
   /**
    * All-args constructor.
    */
-  public Group(java.lang.String lemma, org.librairy.service.nlp.facade.model.PoS pos, java.lang.String uri, java.lang.Long freq) {
-    this.lemma = lemma;
+  public Group(java.lang.String token, org.librairy.service.nlp.facade.model.PoS pos, java.lang.String uri, java.lang.Long freq) {
+    this.token = token;
     this.pos = pos;
     this.uri = uri;
     this.freq = freq;
@@ -35,7 +35,7 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return lemma;
+    case 0: return token;
     case 1: return pos;
     case 2: return uri;
     case 3: return freq;
@@ -46,7 +46,7 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: lemma = (java.lang.String)value$; break;
+    case 0: token = (java.lang.String)value$; break;
     case 1: pos = (org.librairy.service.nlp.facade.model.PoS)value$; break;
     case 2: uri = (java.lang.String)value$; break;
     case 3: freq = (java.lang.Long)value$; break;
@@ -55,18 +55,18 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   /**
-   * Gets the value of the 'lemma' field.
+   * Gets the value of the 'token' field.
    */
-  public java.lang.String getLemma() {
-    return lemma;
+  public java.lang.String getToken() {
+    return token;
   }
 
   /**
-   * Sets the value of the 'lemma' field.
+   * Sets the value of the 'token' field.
    * @param value the value to set.
    */
-  public void setLemma(java.lang.String value) {
-    this.lemma = value;
+  public void setToken(java.lang.String value) {
+    this.token = value;
   }
 
   /**
@@ -135,7 +135,7 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Group>
     implements org.apache.avro.data.RecordBuilder<Group> {
 
-    private java.lang.String lemma;
+    private java.lang.String token;
     private org.librairy.service.nlp.facade.model.PoS pos;
     private java.lang.String uri;
     private long freq;
@@ -148,8 +148,8 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
     /** Creates a Builder by copying an existing Builder */
     private Builder(org.librairy.service.nlp.facade.model.Group.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.lemma)) {
-        this.lemma = data().deepCopy(fields()[0].schema(), other.lemma);
+      if (isValidValue(fields()[0], other.token)) {
+        this.token = data().deepCopy(fields()[0].schema(), other.token);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.pos)) {
@@ -169,8 +169,8 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
     /** Creates a Builder by copying an existing Group instance */
     private Builder(org.librairy.service.nlp.facade.model.Group other) {
             super(org.librairy.service.nlp.facade.model.Group.SCHEMA$);
-      if (isValidValue(fields()[0], other.lemma)) {
-        this.lemma = data().deepCopy(fields()[0].schema(), other.lemma);
+      if (isValidValue(fields()[0], other.token)) {
+        this.token = data().deepCopy(fields()[0].schema(), other.token);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.pos)) {
@@ -187,27 +187,27 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
       }
     }
 
-    /** Gets the value of the 'lemma' field */
-    public java.lang.String getLemma() {
-      return lemma;
+    /** Gets the value of the 'token' field */
+    public java.lang.String getToken() {
+      return token;
     }
     
-    /** Sets the value of the 'lemma' field */
-    public org.librairy.service.nlp.facade.model.Group.Builder setLemma(java.lang.String value) {
+    /** Sets the value of the 'token' field */
+    public org.librairy.service.nlp.facade.model.Group.Builder setToken(java.lang.String value) {
       validate(fields()[0], value);
-      this.lemma = value;
+      this.token = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
     
-    /** Checks whether the 'lemma' field has been set */
-    public boolean hasLemma() {
+    /** Checks whether the 'token' field has been set */
+    public boolean hasToken() {
       return fieldSetFlags()[0];
     }
     
-    /** Clears the value of the 'lemma' field */
-    public org.librairy.service.nlp.facade.model.Group.Builder clearLemma() {
-      lemma = null;
+    /** Clears the value of the 'token' field */
+    public org.librairy.service.nlp.facade.model.Group.Builder clearToken() {
+      token = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -290,7 +290,7 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
     public Group build() {
       try {
         Group record = new Group();
-        record.lemma = fieldSetFlags()[0] ? this.lemma : (java.lang.String) defaultValue(fields()[0]);
+        record.token = fieldSetFlags()[0] ? this.token : (java.lang.String) defaultValue(fields()[0]);
         record.pos = fieldSetFlags()[1] ? this.pos : (org.librairy.service.nlp.facade.model.PoS) defaultValue(fields()[1]);
         record.uri = fieldSetFlags()[2] ? this.uri : (java.lang.String) defaultValue(fields()[2]);
         record.freq = fieldSetFlags()[3] ? this.freq : (java.lang.Long) defaultValue(fields()[3]);
