@@ -33,29 +33,29 @@ public class AvroClient {
         if (client != null) client.close();
     }
 
-    public String tokens(String text, List<PoS> filter, Form form, Boolean multigrams) throws AvroRemoteException {
+    public String tokens(String text, List<PoS> filter, Form form, Domain domain) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.tokens with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", multigrams: " + multigrams);
-        CharSequence result = proxy.tokens(text, filter, form, multigrams);
+        LOG.debug("Calling proxy.tokens with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", domain: " + domain);
+        CharSequence result = proxy.tokens(text, filter, form, domain);
         LOG.debug("Result: " + result);
         return result.toString();
     }
 
-    public List<Annotation> annotations(String text, List<PoS> filter, Boolean multigrams, Boolean references) throws AvroRemoteException {
+    public List<Annotation> annotations(String text, List<PoS> filter, Domain domain) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.annotations with message:  \"" + text +"\" , filter: " + filter + ", multigrams: " + multigrams + ", references:" + references);
-        List<Annotation> annotations = proxy.annotations(text, filter, multigrams, references);
+        LOG.debug("Calling proxy.annotations with message:  \"" + text +"\" , filter: " + filter + ", domain: " + domain);
+        List<Annotation> annotations = proxy.annotations(text, filter, domain);
         LOG.debug("Result: " + annotations);
         return annotations;
     }
 
-    public List<Group> groups(String text, List<PoS> filter, Form form, Boolean multigrams, Boolean references) throws AvroRemoteException {
+    public List<Group> groups(String text, List<PoS> filter, Form form, Domain domain) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.groups with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", multigrams: " + multigrams + ", references:" + references);
-        List<Group> result = proxy.groups(text, filter, multigrams, references);
+        LOG.debug("Calling proxy.groups with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", domain: " + domain );
+        List<Group> result = proxy.groups(text, filter, domain);
         LOG.debug("Result: " + result);
         return result;
     }

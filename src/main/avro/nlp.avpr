@@ -3,6 +3,7 @@
 
  "types": [
     {"name": "PoS", "type": "enum","symbols": ["NOUN","VERB","ADJECTIVE","ADVERB","PRONOUN","PREPOSITION","CONJUNCTION","INTERJECTION","ARTICLE"]},
+    {"name": "Domain", "type": "enum","symbols": ["GENERAL","DBPEDIA","LEGAL"]},
     {"name": "Form", "type": "enum","symbols": ["RAW","LEMMA"]},
     {"name": "Token", "type": "record", "fields": [
      {"name":"target","type":"string","order":"ignore"},
@@ -27,15 +28,15 @@
 
  "messages": {
      "tokens": {
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "form", "type": "Form"},{"name": "multigrams", "type": "boolean"}],
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "form", "type": "Form"},{"name": "domain", "type": "Domain"}],
        "response": "string"
      },
      "annotations":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"}],
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "domain", "type": "Domain"}],
        "response": {"type" : "array","items":"Annotation"}
      },
      "groups":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"}],
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "domain", "type": "Domain"}],
        "response": {"type" : "array","items":"Group"}
      }
  }
