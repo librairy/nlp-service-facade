@@ -51,9 +51,9 @@ public class CommunicationTest {
 
         texts.forEach(text -> {
             try {
-                client.tokens(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, Domain.GENERAL);
-                client.annotations(text, Collections.emptyList(), Domain.GENERAL);
-                client.groups(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, Domain.GENERAL);
+                client.tokens(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, Domain.WORDNET);
+                client.annotations(text, Collections.emptyList(), Domain.WORDNET);
+                client.groups(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, Domain.WORDNET);
             } catch (AvroRemoteException e) {
                 e.printStackTrace();
             }

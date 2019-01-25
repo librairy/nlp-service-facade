@@ -7,7 +7,7 @@ package org.librairy.service.nlp.facade.model;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public enum Domain { 
-  GENERAL, DBPEDIA, LEGAL  ;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"Domain\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"symbols\":[\"GENERAL\",\"DBPEDIA\",\"LEGAL\"]}");
+  WORDNET, DBPEDIA, EUROVOC  ;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"Domain\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"symbols\":[\"WORDNET\",\"DBPEDIA\",\"EUROVOC\"]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 }

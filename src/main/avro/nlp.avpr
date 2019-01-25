@@ -3,7 +3,7 @@
 
  "types": [
     {"name": "PoS", "type": "enum","symbols": ["NOUN","VERB","ADJECTIVE","ADVERB","PRONOUN","PREPOSITION","CONJUNCTION","INTERJECTION","ARTICLE"]},
-    {"name": "Domain", "type": "enum","symbols": ["GENERAL","DBPEDIA","LEGAL"]},
+    {"name": "Domain", "type": "enum","symbols": ["WORDNET","DBPEDIA","EUROVOC"]},
     {"name": "Form", "type": "enum","symbols": ["RAW","LEMMA"]},
     {"name": "Token", "type": "record", "fields": [
      {"name":"target","type":"string","order":"ignore"},
