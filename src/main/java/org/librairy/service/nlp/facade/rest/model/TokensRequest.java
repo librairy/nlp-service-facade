@@ -16,6 +16,9 @@ public class TokensRequest {
     @ApiModelProperty(notes="multi-gram")
     private Boolean multigrams = false;
 
+    @ApiModelProperty(notes="language ISO 639-1 Code")
+    private String lang = null;
+
     @ApiModelProperty(notes="Unstructured text")
     private String text = "";
 
@@ -25,14 +28,23 @@ public class TokensRequest {
     @ApiModelProperty(notes="Output form of tokens (LEMMA or RAW")
     private Form form;
 
-    public TokensRequest(String text, List<PoS> filter, Form form, Boolean multigrams) {
+    public TokensRequest(String text, List<PoS> filter, Form form, Boolean multigrams, String lang) {
         this.text = text;
         this.filter = filter;
         this.form = form;
         this.multigrams = multigrams;
+        this.lang = lang;
     }
 
     public TokensRequest(){};
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
 
     public String getText() {
         return text;

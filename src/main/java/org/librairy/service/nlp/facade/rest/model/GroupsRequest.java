@@ -15,6 +15,9 @@ public class GroupsRequest {
     @ApiModelProperty(notes="multi-gram")
     private Boolean multigrams = false;
 
+    @ApiModelProperty(notes="language ISO 639-1 Code")
+    private String lang = null;
+
     @ApiModelProperty(notes="external references")
     private Boolean references = false;
 
@@ -24,14 +27,23 @@ public class GroupsRequest {
     @ApiModelProperty(notes="List of PoS to be considered. All when empty")
     private List<PoS> filter = Collections.emptyList();
 
-    public GroupsRequest(String text, List<PoS> filter, Boolean multigrams, Boolean references) {
+    public GroupsRequest(String text, List<PoS> filter, Boolean multigrams, Boolean references, String lang) {
         this.text = text;
         this.filter = filter;
         this.multigrams = multigrams;
         this.references = references;
+        this.lang = lang;
     }
 
     public GroupsRequest(){};
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
 
     public String getText() {
         return text;
