@@ -20,17 +20,17 @@ public class CommunicationTest {
 
         NlpService customService = new NlpService() {
             @Override
-            public String tokens(String text, List<PoS> filter, Form form, Domain domain) throws AvroRemoteException {
+            public String tokens(String text, List<PoS> filter, Form form, boolean ngram, String lang) throws AvroRemoteException {
                 return "text processed";
             }
 
             @Override
-            public List<Annotation> annotations(String text, List<PoS> filter, Domain domain) throws AvroRemoteException {
+            public List<Annotation> annotations(String text, List<PoS> filter, boolean ngram, boolean references, String lang) throws AvroRemoteException {
                 return Collections.emptyList();
             }
 
             @Override
-            public List<Group> groups(String text, List<PoS> filter, Domain domain) throws AvroRemoteException {
+            public List<Group> groups(String text, List<PoS> filter, boolean ngram, boolean references, String lang) throws AvroRemoteException {
                 return Collections.emptyList();
             }
 
@@ -51,9 +51,9 @@ public class CommunicationTest {
 
         texts.forEach(text -> {
             try {
-                client.tokens(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, Domain.WORDNET);
-                client.annotations(text, Collections.emptyList(), Domain.WORDNET);
-                client.groups(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, Domain.WORDNET);
+                client.tokens(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, false, "en");
+                client.annotations(text, Collections.emptyList(), false, false, "en");
+                client.groups(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, false, false, "en");
             } catch (AvroRemoteException e) {
                 e.printStackTrace();
             }

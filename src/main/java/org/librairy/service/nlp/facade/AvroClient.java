@@ -33,29 +33,29 @@ public class AvroClient {
         if (client != null) client.close();
     }
 
-    public String tokens(String text, List<PoS> filter, Form form, Domain domain) throws AvroRemoteException {
+    public String tokens(String text, List<PoS> filter, Form form, Boolean multigrams, String lang) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.tokens with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", domain: " + domain);
-        CharSequence result = proxy.tokens(text, filter, form, domain);
+        LOG.debug("Calling proxy.tokens with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", multigrams: " + multigrams+ ", lang:" + lang);
+        CharSequence result = proxy.tokens(text, filter, form, multigrams, lang);
         LOG.debug("Result: " + result);
         return result.toString();
     }
 
-    public List<Annotation> annotations(String text, List<PoS> filter, Domain domain) throws AvroRemoteException {
+    public List<Annotation> annotations(String text, List<PoS> filter, Boolean multigrams, Boolean references, String lang) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.annotations with message:  \"" + text +"\" , filter: " + filter + ", domain: " + domain);
-        List<Annotation> annotations = proxy.annotations(text, filter, domain);
+        LOG.debug("Calling proxy.annotations with message:  \"" + text +"\" , filter: " + filter + ", multigrams: " + multigrams + ", references:" + references+ ", lang:" + lang);
+        List<Annotation> annotations = proxy.annotations(text, filter, multigrams, references, lang);
         LOG.debug("Result: " + annotations);
         return annotations;
     }
 
-    public List<Group> groups(String text, List<PoS> filter, Form form, Domain domain) throws AvroRemoteException {
+    public List<Group> groups(String text, List<PoS> filter, Form form, Boolean multigrams, Boolean references, String lang) throws AvroRemoteException {
 
         // fill in the Message record and send it
-        LOG.debug("Calling proxy.groups with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", domain: " + domain );
-        List<Group> result = proxy.groups(text, filter, domain);
+        LOG.debug("Calling proxy.groups with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", multigrams: " + multigrams + ", references:" + references + ", lang:" + lang);
+        List<Group> result = proxy.groups(text, filter, multigrams, references, lang);
         LOG.debug("Result: " + result);
         return result;
     }

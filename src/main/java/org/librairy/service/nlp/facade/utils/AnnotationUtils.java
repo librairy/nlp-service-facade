@@ -82,11 +82,11 @@ public class AnnotationUtils {
 
     private static Integer increment(Annotation a){
         if (a.getToken() == null) return 1;
-        if (!Strings.isNullOrEmpty(a.getToken().getTarget())){
-            return a.getToken().getTarget().length();
-        }
         if (!Strings.isNullOrEmpty(a.getToken().getLemma())){
             return a.getToken().getLemma().length();
+        }
+        if (!Strings.isNullOrEmpty(a.getToken().getTarget())){
+            return a.getToken().getTarget().length();
         }
         return 1;
     }
