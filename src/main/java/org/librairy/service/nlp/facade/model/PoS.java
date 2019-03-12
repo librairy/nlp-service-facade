@@ -7,7 +7,7 @@ package org.librairy.service.nlp.facade.model;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public enum PoS { 
-  NOUN, VERB, ADJECTIVE, ADVERB, PRONOUN, PREPOSITION, CONJUNCTION, INTERJECTION, ARTICLE, PUNCTUATION, NUMBER, DATE  ;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"PoS\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"symbols\":[\"NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\",\"PUNCTUATION\",\"NUMBER\",\"DATE\"]}");
+  NOUN, VERB, ADJECTIVE, ADVERB, PRONOUN, PREPOSITION, CONJUNCTION, INTERJECTION, ARTICLE, PUNCTUATION, NUMBER, DATE, SYMBOL  ;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"PoS\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"symbols\":[\"NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\",\"PUNCTUATION\",\"NUMBER\",\"DATE\",\"SYMBOL\"]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 }

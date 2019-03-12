@@ -2,7 +2,7 @@
  "protocol": "NlpService",
 
  "types": [
-    {"name": "PoS", "type": "enum","symbols": ["NOUN","VERB","ADJECTIVE","ADVERB","PRONOUN","PREPOSITION","CONJUNCTION","INTERJECTION","ARTICLE", "PUNCTUATION", "NUMBER", "DATE"]},
+    {"name": "PoS", "type": "enum","symbols": ["NOUN","VERB","ADJECTIVE","ADVERB","PRONOUN","PREPOSITION","CONJUNCTION","INTERJECTION","ARTICLE", "PUNCTUATION", "NUMBER", "DATE", "SYMBOL"]},
     {"name": "Form", "type": "enum","symbols": ["RAW","LEMMA"]},
     {"name": "Token", "type": "record", "fields": [
      {"name":"target","type":"string","order":"ignore"},
