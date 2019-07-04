@@ -25,7 +25,7 @@ public class CommunicationTest {
             }
 
             @Override
-            public List<Annotation> annotations(String text, List<PoS> filter, boolean ngram, boolean references, String lang) throws AvroRemoteException {
+            public List<Annotation> annotations(String text, List<PoS> filter, boolean ngram, boolean references, boolean synsets, String lang) throws AvroRemoteException {
                 return Collections.emptyList();
             }
 
@@ -52,7 +52,7 @@ public class CommunicationTest {
         texts.forEach(text -> {
             try {
                 client.tokens(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, false, "en");
-                client.annotations(text, Collections.emptyList(), false, false, "en");
+                client.annotations(text, Collections.emptyList(), false, false, false,"en");
                 client.groups(text, Arrays.asList(new PoS[]{PoS.NOUN, PoS.VERB}), Form.RAW, false, false, "en");
             } catch (AvroRemoteException e) {
                 e.printStackTrace();

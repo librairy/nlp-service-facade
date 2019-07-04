@@ -42,11 +42,11 @@ public class AvroClient {
         return result.toString();
     }
 
-    public List<Annotation> annotations(String text, List<PoS> filter, Boolean multigrams, Boolean references, String lang) throws AvroRemoteException {
+    public List<Annotation> annotations(String text, List<PoS> filter, Boolean multigrams, Boolean references, Boolean synsets, String lang) throws AvroRemoteException {
 
         // fill in the Message record and send it
         LOG.debug("Calling proxy.annotations with message:  \"" + text +"\" , filter: " + filter + ", multigrams: " + multigrams + ", references:" + references+ ", lang:" + lang);
-        List<Annotation> annotations = proxy.annotations(text, filter, multigrams, references, lang);
+        List<Annotation> annotations = proxy.annotations(text, filter, multigrams, references, synsets, lang);
         LOG.debug("Result: " + annotations);
         return annotations;
     }

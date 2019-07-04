@@ -15,6 +15,7 @@
       {"name":"token","type":"Token"},
       {"name":"offset","type":"long","order":"ignore"},
       {"name":"sentiment","type":["null","string"],"default":null,"order":"ignore"},
+      {"name":"synsets","type":{"type" : "array","items":"string"},"default":[],"order":"ignore"},
       {"name":"uri","type":["null","string"],"default":null,"order":"ignore"}
     ]},
    {"name": "Group", "type": "record", "fields": [
@@ -31,7 +32,7 @@
        "response": "string"
      },
      "annotations":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"},{"name":"lang","type":["null","string"],"default":null}],
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"},{"name": "synsets", "type": "boolean"},{"name":"lang","type":["null","string"],"default":null}],
        "response": {"type" : "array","items":"Annotation"}
      },
      "groups":{

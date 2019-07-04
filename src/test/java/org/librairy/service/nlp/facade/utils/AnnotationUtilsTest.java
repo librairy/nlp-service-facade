@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -20,16 +21,16 @@ public class AnnotationUtilsTest {
     @Test
     public void merge(){
         List<Annotation> a1l = new ArrayList<>();
-        a1l.add(new Annotation(null,0l,"sent",null));
-        a1l.add(new Annotation(null,2l,"sent",null));
-        a1l.add(new Annotation(null,8l,"sent",null));
+        a1l.add(new Annotation(null,0l,"sent", Collections.EMPTY_LIST, null));
+        a1l.add(new Annotation(null,2l,"sent", Collections.EMPTY_LIST, null));
+        a1l.add(new Annotation(null,8l,"sent", Collections.EMPTY_LIST, null));
 
 
         List<Annotation> a2l = new ArrayList<>();
-        a2l.add(new Annotation(null,1l,null,"uri"));
-        a2l.add(new Annotation(null,2l,null,"uri"));
-        a2l.add(new Annotation(null,8l,null,"uri"));
-        a2l.add(new Annotation(null,10l,null,"uri"));
+        a2l.add(new Annotation(null,1l,null, Collections.EMPTY_LIST, "uri"));
+        a2l.add(new Annotation(null,2l,null, Collections.EMPTY_LIST, "uri"));
+        a2l.add(new Annotation(null,8l,null, Collections.EMPTY_LIST, "uri"));
+        a2l.add(new Annotation(null,10l,null, Collections.EMPTY_LIST, "uri"));
 
 
         List<Annotation> result = AnnotationUtils.merge(a1l, a2l);
