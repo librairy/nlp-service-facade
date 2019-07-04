@@ -51,11 +51,11 @@ public class AvroClient {
         return annotations;
     }
 
-    public List<Group> groups(String text, List<PoS> filter, Form form, Boolean multigrams, Boolean references, String lang) throws AvroRemoteException {
+    public List<Group> groups(String text, List<PoS> filter, Form form, Boolean multigrams, Boolean references, Boolean synsets, String lang) throws AvroRemoteException {
 
         // fill in the Message record and send it
         LOG.debug("Calling proxy.groups with message:  \"" + text +"\" , filter: " + filter + ", form: " + form + ", multigrams: " + multigrams + ", references:" + references + ", lang:" + lang);
-        List<Group> result = proxy.groups(text, filter, multigrams, references, lang);
+        List<Group> result = proxy.groups(text, filter, multigrams, references, synsets, lang);
         LOG.debug("Result: " + result);
         return result;
     }
