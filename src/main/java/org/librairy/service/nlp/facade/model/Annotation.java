@@ -7,12 +7,12 @@ package org.librairy.service.nlp.facade.model;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Annotation extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Annotation\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"token\",\"type\":{\"type\":\"record\",\"name\":\"Token\",\"fields\":[{\"name\":\"target\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"order\":\"ignore\"},{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"morphoFeat\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"PROPER_NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\",\"PUNCTUATION_MARK\",\"NUMBER\",\"DATE\",\"SYMBOL\"]},\"order\":\"ignore\"},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"}]}},{\"name\":\"offset\",\"type\":\"long\",\"order\":\"ignore\"},{\"name\":\"sentiment\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"synsets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"default\":[],\"order\":\"ignore\"},{\"name\":\"uri\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Annotation\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"token\",\"type\":{\"type\":\"record\",\"name\":\"Token\",\"fields\":[{\"name\":\"target\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"order\":\"ignore\"},{\"name\":\"lemma\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"morphoFeat\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"PROPER_NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\",\"PUNCTUATION_MARK\",\"NUMBER\",\"DATE\",\"SYMBOL\"]},\"order\":\"ignore\"},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"}]}},{\"name\":\"offset\",\"type\":\"long\",\"order\":\"ignore\"},{\"name\":\"sentiment\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"synset\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"default\":[],\"order\":\"ignore\"},{\"name\":\"uri\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
    private org.librairy.service.nlp.facade.model.Token token;
    private long offset;
    private java.lang.String sentiment;
-   private java.util.List<java.lang.String> synsets;
+   private java.util.List<java.lang.String> synset;
    private java.lang.String uri;
 
   /**
@@ -25,11 +25,11 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    */
-  public Annotation(org.librairy.service.nlp.facade.model.Token token, java.lang.Long offset, java.lang.String sentiment, java.util.List<java.lang.String> synsets, java.lang.String uri) {
+  public Annotation(org.librairy.service.nlp.facade.model.Token token, java.lang.Long offset, java.lang.String sentiment, java.util.List<java.lang.String> synset, java.lang.String uri) {
     this.token = token;
     this.offset = offset;
     this.sentiment = sentiment;
-    this.synsets = synsets;
+    this.synset = synset;
     this.uri = uri;
   }
 
@@ -40,7 +40,7 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
     case 0: return token;
     case 1: return offset;
     case 2: return sentiment;
-    case 3: return synsets;
+    case 3: return synset;
     case 4: return uri;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -52,7 +52,7 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
     case 0: token = (org.librairy.service.nlp.facade.model.Token)value$; break;
     case 1: offset = (java.lang.Long)value$; break;
     case 2: sentiment = (java.lang.String)value$; break;
-    case 3: synsets = (java.util.List<java.lang.String>)value$; break;
+    case 3: synset = (java.util.List<java.lang.String>)value$; break;
     case 4: uri = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -104,18 +104,18 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
-   * Gets the value of the 'synsets' field.
+   * Gets the value of the 'synset' field.
    */
-  public java.util.List<java.lang.String> getSynsets() {
-    return synsets;
+  public java.util.List<java.lang.String> getSynset() {
+    return synset;
   }
 
   /**
-   * Sets the value of the 'synsets' field.
+   * Sets the value of the 'synset' field.
    * @param value the value to set.
    */
-  public void setSynsets(java.util.List<java.lang.String> value) {
-    this.synsets = value;
+  public void setSynset(java.util.List<java.lang.String> value) {
+    this.synset = value;
   }
 
   /**
@@ -157,7 +157,7 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
     private org.librairy.service.nlp.facade.model.Token token;
     private long offset;
     private java.lang.String sentiment;
-    private java.util.List<java.lang.String> synsets;
+    private java.util.List<java.lang.String> synset;
     private java.lang.String uri;
 
     /** Creates a new Builder */
@@ -180,8 +180,8 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
         this.sentiment = data().deepCopy(fields()[2].schema(), other.sentiment);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.synsets)) {
-        this.synsets = data().deepCopy(fields()[3].schema(), other.synsets);
+      if (isValidValue(fields()[3], other.synset)) {
+        this.synset = data().deepCopy(fields()[3].schema(), other.synset);
         fieldSetFlags()[3] = true;
       }
       if (isValidValue(fields()[4], other.uri)) {
@@ -205,8 +205,8 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
         this.sentiment = data().deepCopy(fields()[2].schema(), other.sentiment);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.synsets)) {
-        this.synsets = data().deepCopy(fields()[3].schema(), other.synsets);
+      if (isValidValue(fields()[3], other.synset)) {
+        this.synset = data().deepCopy(fields()[3].schema(), other.synset);
         fieldSetFlags()[3] = true;
       }
       if (isValidValue(fields()[4], other.uri)) {
@@ -289,27 +289,27 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
       return this;
     }
 
-    /** Gets the value of the 'synsets' field */
-    public java.util.List<java.lang.String> getSynsets() {
-      return synsets;
+    /** Gets the value of the 'synset' field */
+    public java.util.List<java.lang.String> getSynset() {
+      return synset;
     }
     
-    /** Sets the value of the 'synsets' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder setSynsets(java.util.List<java.lang.String> value) {
+    /** Sets the value of the 'synset' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder setSynset(java.util.List<java.lang.String> value) {
       validate(fields()[3], value);
-      this.synsets = value;
+      this.synset = value;
       fieldSetFlags()[3] = true;
       return this; 
     }
     
-    /** Checks whether the 'synsets' field has been set */
-    public boolean hasSynsets() {
+    /** Checks whether the 'synset' field has been set */
+    public boolean hasSynset() {
       return fieldSetFlags()[3];
     }
     
-    /** Clears the value of the 'synsets' field */
-    public org.librairy.service.nlp.facade.model.Annotation.Builder clearSynsets() {
-      synsets = null;
+    /** Clears the value of the 'synset' field */
+    public org.librairy.service.nlp.facade.model.Annotation.Builder clearSynset() {
+      synset = null;
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -346,7 +346,7 @@ public class Annotation extends org.apache.avro.specific.SpecificRecordBase impl
         record.token = fieldSetFlags()[0] ? this.token : (org.librairy.service.nlp.facade.model.Token) defaultValue(fields()[0]);
         record.offset = fieldSetFlags()[1] ? this.offset : (java.lang.Long) defaultValue(fields()[1]);
         record.sentiment = fieldSetFlags()[2] ? this.sentiment : (java.lang.String) defaultValue(fields()[2]);
-        record.synsets = fieldSetFlags()[3] ? this.synsets : (java.util.List<java.lang.String>) defaultValue(fields()[3]);
+        record.synset = fieldSetFlags()[3] ? this.synset : (java.util.List<java.lang.String>) defaultValue(fields()[3]);
         record.uri = fieldSetFlags()[4] ? this.uri : (java.lang.String) defaultValue(fields()[4]);
         return record;
       } catch (Exception e) {

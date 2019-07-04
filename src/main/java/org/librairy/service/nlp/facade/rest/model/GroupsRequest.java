@@ -21,17 +21,21 @@ public class GroupsRequest {
     @ApiModelProperty(notes="external references")
     private Boolean references = false;
 
+    @ApiModelProperty(notes="Wordnet Synset")
+    private Boolean synset = false;
+
     @ApiModelProperty(notes="Unstructured text")
     private String text = "";
 
     @ApiModelProperty(notes="List of PoS to be considered. All when empty")
     private List<PoS> filter = Collections.emptyList();
 
-    public GroupsRequest(String text, List<PoS> filter, Boolean multigrams, Boolean references, String lang) {
+    public GroupsRequest(String text, List<PoS> filter, Boolean multigrams, Boolean references, Boolean synset, String lang) {
         this.text = text;
         this.filter = filter;
         this.multigrams = multigrams;
         this.references = references;
+        this.synset = synset;
         this.lang = lang;
     }
 
@@ -75,5 +79,13 @@ public class GroupsRequest {
 
     public void setReferences(Boolean references) {
         this.references = references;
+    }
+
+    public Boolean getSynset() {
+        return synset;
+    }
+
+    public void setSynset(Boolean synset) {
+        this.synset = synset;
     }
 }

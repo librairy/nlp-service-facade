@@ -7,11 +7,11 @@ package org.librairy.service.nlp.facade.model;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Group extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Group\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"token\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"PROPER_NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\",\"PUNCTUATION_MARK\",\"NUMBER\",\"DATE\",\"SYMBOL\"]},\"order\":\"ignore\"},{\"name\":\"synsets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"default\":[],\"order\":\"ignore\"},{\"name\":\"uri\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"freq\",\"type\":\"long\",\"order\":\"ignore\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Group\",\"namespace\":\"org.librairy.service.nlp.facade.model\",\"fields\":[{\"name\":\"token\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pos\",\"type\":{\"type\":\"enum\",\"name\":\"PoS\",\"symbols\":[\"NOUN\",\"PROPER_NOUN\",\"VERB\",\"ADJECTIVE\",\"ADVERB\",\"PRONOUN\",\"PREPOSITION\",\"CONJUNCTION\",\"INTERJECTION\",\"ARTICLE\",\"PUNCTUATION_MARK\",\"NUMBER\",\"DATE\",\"SYMBOL\"]},\"order\":\"ignore\"},{\"name\":\"synset\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"default\":[],\"order\":\"ignore\"},{\"name\":\"uri\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null,\"order\":\"ignore\"},{\"name\":\"freq\",\"type\":\"long\",\"order\":\"ignore\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
    private java.lang.String token;
    private org.librairy.service.nlp.facade.model.PoS pos;
-   private java.util.List<java.lang.String> synsets;
+   private java.util.List<java.lang.String> synset;
    private java.lang.String uri;
    private long freq;
 
@@ -25,10 +25,10 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
   /**
    * All-args constructor.
    */
-  public Group(java.lang.String token, org.librairy.service.nlp.facade.model.PoS pos, java.util.List<java.lang.String> synsets, java.lang.String uri, java.lang.Long freq) {
+  public Group(java.lang.String token, org.librairy.service.nlp.facade.model.PoS pos, java.util.List<java.lang.String> synset, java.lang.String uri, java.lang.Long freq) {
     this.token = token;
     this.pos = pos;
-    this.synsets = synsets;
+    this.synset = synset;
     this.uri = uri;
     this.freq = freq;
   }
@@ -39,7 +39,7 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
     switch (field$) {
     case 0: return token;
     case 1: return pos;
-    case 2: return synsets;
+    case 2: return synset;
     case 3: return uri;
     case 4: return freq;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -51,7 +51,7 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
     switch (field$) {
     case 0: token = (java.lang.String)value$; break;
     case 1: pos = (org.librairy.service.nlp.facade.model.PoS)value$; break;
-    case 2: synsets = (java.util.List<java.lang.String>)value$; break;
+    case 2: synset = (java.util.List<java.lang.String>)value$; break;
     case 3: uri = (java.lang.String)value$; break;
     case 4: freq = (java.lang.Long)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -89,18 +89,18 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   /**
-   * Gets the value of the 'synsets' field.
+   * Gets the value of the 'synset' field.
    */
-  public java.util.List<java.lang.String> getSynsets() {
-    return synsets;
+  public java.util.List<java.lang.String> getSynset() {
+    return synset;
   }
 
   /**
-   * Sets the value of the 'synsets' field.
+   * Sets the value of the 'synset' field.
    * @param value the value to set.
    */
-  public void setSynsets(java.util.List<java.lang.String> value) {
-    this.synsets = value;
+  public void setSynset(java.util.List<java.lang.String> value) {
+    this.synset = value;
   }
 
   /**
@@ -156,7 +156,7 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
 
     private java.lang.String token;
     private org.librairy.service.nlp.facade.model.PoS pos;
-    private java.util.List<java.lang.String> synsets;
+    private java.util.List<java.lang.String> synset;
     private java.lang.String uri;
     private long freq;
 
@@ -176,8 +176,8 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
         this.pos = data().deepCopy(fields()[1].schema(), other.pos);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.synsets)) {
-        this.synsets = data().deepCopy(fields()[2].schema(), other.synsets);
+      if (isValidValue(fields()[2], other.synset)) {
+        this.synset = data().deepCopy(fields()[2].schema(), other.synset);
         fieldSetFlags()[2] = true;
       }
       if (isValidValue(fields()[3], other.uri)) {
@@ -201,8 +201,8 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
         this.pos = data().deepCopy(fields()[1].schema(), other.pos);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.synsets)) {
-        this.synsets = data().deepCopy(fields()[2].schema(), other.synsets);
+      if (isValidValue(fields()[2], other.synset)) {
+        this.synset = data().deepCopy(fields()[2].schema(), other.synset);
         fieldSetFlags()[2] = true;
       }
       if (isValidValue(fields()[3], other.uri)) {
@@ -265,27 +265,27 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
       return this;
     }
 
-    /** Gets the value of the 'synsets' field */
-    public java.util.List<java.lang.String> getSynsets() {
-      return synsets;
+    /** Gets the value of the 'synset' field */
+    public java.util.List<java.lang.String> getSynset() {
+      return synset;
     }
     
-    /** Sets the value of the 'synsets' field */
-    public org.librairy.service.nlp.facade.model.Group.Builder setSynsets(java.util.List<java.lang.String> value) {
+    /** Sets the value of the 'synset' field */
+    public org.librairy.service.nlp.facade.model.Group.Builder setSynset(java.util.List<java.lang.String> value) {
       validate(fields()[2], value);
-      this.synsets = value;
+      this.synset = value;
       fieldSetFlags()[2] = true;
       return this; 
     }
     
-    /** Checks whether the 'synsets' field has been set */
-    public boolean hasSynsets() {
+    /** Checks whether the 'synset' field has been set */
+    public boolean hasSynset() {
       return fieldSetFlags()[2];
     }
     
-    /** Clears the value of the 'synsets' field */
-    public org.librairy.service.nlp.facade.model.Group.Builder clearSynsets() {
-      synsets = null;
+    /** Clears the value of the 'synset' field */
+    public org.librairy.service.nlp.facade.model.Group.Builder clearSynset() {
+      synset = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -345,7 +345,7 @@ public class Group extends org.apache.avro.specific.SpecificRecordBase implement
         Group record = new Group();
         record.token = fieldSetFlags()[0] ? this.token : (java.lang.String) defaultValue(fields()[0]);
         record.pos = fieldSetFlags()[1] ? this.pos : (org.librairy.service.nlp.facade.model.PoS) defaultValue(fields()[1]);
-        record.synsets = fieldSetFlags()[2] ? this.synsets : (java.util.List<java.lang.String>) defaultValue(fields()[2]);
+        record.synset = fieldSetFlags()[2] ? this.synset : (java.util.List<java.lang.String>) defaultValue(fields()[2]);
         record.uri = fieldSetFlags()[3] ? this.uri : (java.lang.String) defaultValue(fields()[3]);
         record.freq = fieldSetFlags()[4] ? this.freq : (java.lang.Long) defaultValue(fields()[4]);
         return record;

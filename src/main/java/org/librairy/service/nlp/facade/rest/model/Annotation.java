@@ -7,6 +7,7 @@ import org.apache.avro.Schema;
 import org.apache.commons.beanutils.BeanUtils;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 /**
  * @author Badenes Olmedo, Carlos <cbadenes@fi.upm.es>
@@ -50,6 +51,12 @@ public class Annotation extends org.librairy.service.nlp.facade.model.Annotation
     @ApiModelProperty(value = "The offset (in characters) of the original word form (required)")
     public Long getOffset() {
         return super.getOffset();
+    }
+
+    @Override
+    @ApiModelProperty(value="Wordnet Synset")
+    public List<String> getSynset() {
+        return super.getSynset();
     }
 
     @Override

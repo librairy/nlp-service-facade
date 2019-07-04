@@ -8,6 +8,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.librairy.service.nlp.facade.model.PoS;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 /**
  * @author Badenes Olmedo, Carlos <cbadenes@fi.upm.es>
@@ -51,6 +52,12 @@ public class Group extends org.librairy.service.nlp.facade.model.Group {
     @ApiModelProperty(value = "Part of speech")
     public PoS getPos() {
         return super.getPos();
+    }
+
+    @Override
+    @ApiModelProperty(value = "Wordnet Synset")
+    public List<String> getSynset() {
+        return super.getSynset();
     }
 
     @Override

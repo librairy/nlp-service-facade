@@ -15,13 +15,13 @@
       {"name":"token","type":"Token"},
       {"name":"offset","type":"long","order":"ignore"},
       {"name":"sentiment","type":["null","string"],"default":null,"order":"ignore"},
-      {"name":"synsets","type":{"type" : "array","items":"string"},"default":[],"order":"ignore"},
+      {"name":"synset","type":{"type" : "array","items":"string"},"default":[],"order":"ignore"},
       {"name":"uri","type":["null","string"],"default":null,"order":"ignore"}
     ]},
    {"name": "Group", "type": "record", "fields": [
      {"name":"token","type":"string"},
      {"name":"pos","type":"PoS","order":"ignore"},
-     {"name":"synsets","type":{"type" : "array","items":"string"},"default":[],"order":"ignore"},
+     {"name":"synset","type":{"type" : "array","items":"string"},"default":[],"order":"ignore"},
      {"name":"uri","type":["null","string"],"default":null,"order":"ignore"},
      {"name":"freq","type":"long","order":"ignore"}
    ]}
@@ -33,11 +33,11 @@
        "response": "string"
      },
      "annotations":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"},{"name": "synsets", "type": "boolean"},{"name":"lang","type":["null","string"],"default":null}],
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"},{"name": "synset", "type": "boolean"},{"name":"lang","type":["null","string"],"default":null}],
        "response": {"type" : "array","items":"Annotation"}
      },
      "groups":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"},{"name": "synsets", "type": "boolean"},{"name":"lang","type":["null","string"],"default":null}],
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"},{"name": "synset", "type": "boolean"},{"name":"lang","type":["null","string"],"default":null}],
        "response": {"type" : "array","items":"Group"}
      }
  }
