@@ -55,12 +55,6 @@ public class Group extends org.librairy.service.nlp.facade.model.Group {
     }
 
     @Override
-    @ApiModelProperty(value = "Wordnet Synset")
-    public List<String> getSynset() {
-        return super.getSynset();
-    }
-
-    @Override
     @ApiModelProperty(value="Frequency")
     public Long getFreq() {
         return super.getFreq();

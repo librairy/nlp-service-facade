@@ -21,7 +21,6 @@
    {"name": "Group", "type": "record", "fields": [
      {"name":"token","type":"string"},
      {"name":"pos","type":"PoS","order":"ignore"},
-     {"name":"synset","type":{"type" : "array","items":"string"},"default":[],"order":"ignore"},
      {"name":"uri","type":["null","string"],"default":null,"order":"ignore"},
      {"name":"freq","type":"long","order":"ignore"}
    ]}
