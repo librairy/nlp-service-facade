@@ -25,12 +25,12 @@ public class CommunicationTest {
             }
 
             @Override
-            public List<Annotation> annotations(String text, List<PoS> filter, boolean ngram, boolean references, boolean synsets, String lang) throws AvroRemoteException {
+            public List<Annotation> annotations(String text, List<PoS> filter, Boolean multigrams, Boolean references, Boolean synset, String lang) throws AvroRemoteException {
                 return Collections.emptyList();
             }
 
             @Override
-            public List<Group> groups(String text, List<PoS> filter, boolean ngram, boolean references, boolean synsets, String lang) throws AvroRemoteException {
+            public List<Group> groups(String text, List<PoS> filter, Boolean multigrams, Boolean references, Boolean synset, String lang) throws AvroRemoteException {
                 return Collections.emptyList();
             }
 

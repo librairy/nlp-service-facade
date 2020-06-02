@@ -32,11 +32,11 @@
        "response": "string"
      },
      "annotations":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"},{"name": "synset", "type": "boolean"},{"name":"lang","type":["null","string"],"default":null}],
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type":["null","boolean"],"default":null},{"name": "references", "type":["null","boolean"],"default":null},{"name": "synset", "type":["null","boolean"],"default":null},{"name":"lang","type":["null","string"],"default":null}],
        "response": {"type" : "array","items":"Annotation"}
      },
      "groups":{
-       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type": "boolean"},{"name": "references", "type": "boolean"},{"name": "synset", "type": "boolean"},{"name":"lang","type":["null","string"],"default":null}],
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"PoS"}},{"name": "multigrams", "type":["null","boolean"],"default":null},{"name": "references", "type":["null","boolean"],"default":null},{"name": "synset", "type":["null","boolean"],"default":null},{"name":"lang","type":["null","string"],"default":null}],
        "response": {"type" : "array","items":"Group"}
      }
  }
